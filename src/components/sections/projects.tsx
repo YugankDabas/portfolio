@@ -34,8 +34,8 @@ const projects = [
             "Full-stack analytics dashboard for tracking user interactions. Features an event tracking API, dynamic data visualization charts, feature usage analysis, and a fully responsive UI architecture.",
         image: "/assets/projects/analytics.jpg",
         tags: ["React", "FastAPI", "PostgreSQL"],
-        github: "#",
-        demo: "#",
+        github: "https://github.com/YugankDabas/analytics_dashboard_frontend",
+        demo: "https://analytics-dashboard-frontend-delta.vercel.app/",
         color: "from-blue-500/20 to-cyan-500/20",
     },
 ];
