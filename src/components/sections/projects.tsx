@@ -14,8 +14,8 @@ const projects = [
             "An advanced AI-driven platform for smart farming. Includes plant disease detection with 99% accuracy, crop price forecasting, weather data integration, smart farmer recommendations, and a multilingual dashboard.",
         image: "/assets/projects/krishi-sarthi.jpg",
         tags: ["Node.js", "Springboot", "React", "CNN", "TensorFlow/PyTorch"],
-        github: "#",
-        demo: "#",
+        github: "https://github.com/YugankDabas/Plant_Disease_Prediction",
+        demo: "https://github.com/YugankDabas/Plant_Disease_Prediction",
         color: "from-green-500/20 to-blue-500/20",
     },
     {
@@ -24,8 +24,8 @@ const projects = [
             "AI-powered security platform for DevSecOps. Features repository vulnerability scanning, AI security analysis, automated ticketing, a comprehensive security monitoring dashboard, and risk severity insights.",
         image: "/assets/projects/astrasec.jpg",
         tags: ["FastAPI", "React", "LLM APIs", "Databricks", "Security Scanning"],
-        github: "#",
-        demo: "#",
+        github: "https://github.com/YugankDabas",
+        demo: "https://uat-weld.vercel.app/",
         color: "from-purple-500/20 to-pink-500/20",
     },
     {
