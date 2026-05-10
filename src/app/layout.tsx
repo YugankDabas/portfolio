@@ -17,8 +17,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Yugank Dabas | Elite AI Engineer & Startup Founder",
-  description: "Futuristic portfolio of Yugank Dabas - AI Engineer, Cybersecurity Innovator, and Startup Founder. Building the next generation of intelligent systems.",
+  title: "Yugank Dabas | AI Engineer",
+  description: "Futuristic portfolio of Yugank Dabas - AI Engineer, Cybersecurity Innovator, Full Stack Developer. Building the next generation of intelligent systems.",
 };
 
 export default function RootLayout({

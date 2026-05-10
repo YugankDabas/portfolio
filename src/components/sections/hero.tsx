@@ -11,15 +11,14 @@ const titles = [
   "AI Engineer",
   "ML Developer",
   "Cybersecurity Innovator",
-  "Full Stack Builder",
-  "Startup Founder"
+  "Full Stack Developer"
 ];
 
 const stats = [
-  { label: "AI Projects", value: "25+", icon: BrainCircuit },
-  { label: "Hackathons", value: "10+", icon: Rocket },
+  { label: "AI Projects", value: "4", icon: BrainCircuit },
+  { label: "Hackathons", value: "8", icon: Rocket },
   { label: "Technologies", value: "15+", icon: Code2 },
-  { label: "Security Audits", value: "50+", icon: ShieldCheck },
+  { label: "Security Audits", value: "10+", icon: ShieldCheck },
 ];
 
 export function HeroSection() {
@@ -33,7 +32,7 @@ export function HeroSection() {
       setTitleIndex((prev) => (prev + 1) % titles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
 
   return (
     <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
@@ -41,34 +40,34 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#1e293b,transparent)] opacity-50" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-        
+
         {/* Animated Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        
+
         {/* Floating Orbs */}
-        <motion.div 
-          animate={{ 
-            x: [0, 100, 0], 
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
             y: [0, 50, 0],
             scale: [1, 1.2, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" 
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"
         />
-        <motion.div 
-          animate={{ 
-            x: [0, -100, 0], 
+        <motion.div
+          animate={{
+            x: [0, -100, 0],
             y: [0, -50, 0],
             scale: [1, 1.1, 1]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px]" 
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px]"
         />
       </div>
 
       <div className="container relative z-10 px-4 mx-auto">
         <div className="max-w-5xl mx-auto text-center">
-          
+
           {/* Centered Content */}
           <motion.div
             style={{ y: y1 }}
@@ -97,7 +96,7 @@ export function HeroSection() {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="text-4xl md:text-6xl font-medium text-white/80"
                 >
-                  {titles[titleIndex]}
+                  {titles[titleIndex % titles.length]}
                 </motion.div>
               </AnimatePresence>
             </div>

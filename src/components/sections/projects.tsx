@@ -88,35 +88,39 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
       onMouseLeave={onMouseLeave}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.02, y: -5 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className={cn(
-        "relative group h-full cursor-none",
+        "relative group h-full",
         project.featured ? "md:col-span-2 lg:col-span-1" : ""
       )}
     >
-      {/* Glow Effect */}
       <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 rounded-[2.5rem] blur-3xl transition-opacity duration-500 pointer-events-none" style={{ background: `linear-gradient(135deg, ${project.color.split(' ')[1]}, ${project.color.split(' ')[3]})` }} />
       
-      <div className="relative glass-morphism p-8 rounded-[2.5rem] h-full border border-white/5 group-hover:border-white/20 transition-all duration-500 overflow-hidden flex flex-col">
+      <div className="relative glass-morphism p-8 rounded-[2.5rem] h-full border border-white/5 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.3)] transition-all duration-500 overflow-hidden flex flex-col">
         
-        {/* Custom Cursor for Project */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-20 overflow-hidden">
+        {/* Spotlight Effect (Behind Content) */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700">
             <motion.div 
-                className="w-24 h-24 bg-primary/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                className="w-[400px] h-[400px] rounded-full blur-[100px]"
                 style={{ 
-                    x: useTransform(mouseX, [-0.5, 0.5], [0, 400]),
-                    y: useTransform(mouseY, [-0.5, 0.5], [0, 600]),
+                    background: `radial-gradient(circle, ${project.color.split(' ')[1]}15, transparent 70%)`,
+                    x: useTransform(mouseX, [-0.5, 0.5], [-100, 200]),
+                    y: useTransform(mouseY, [-0.5, 0.5], [-100, 300]),
                 }}
             />
         </div>
 
+        {/* Glass Reflection Shimmer */}
+        <div className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+
         <div className="flex justify-between items-start mb-8 relative z-10">
-          <div className={cn("p-4 rounded-2xl bg-gradient-to-br shadow-xl", project.color)}>
+          <div className={cn("p-4 rounded-2xl bg-gradient-to-br shadow-xl transition-all duration-500 group-hover:scale-110", project.color)}>
             <project.icon className="w-6 h-6 text-white" />
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 relative z-20">
             <a href={project.github} target="_blank" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all">
                 <Github className="w-5 h-5 text-white/60" />
             </a>
@@ -131,24 +135,16 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
           <p className="text-sm font-bold uppercase tracking-widest text-white/40">{project.subtitle}</p>
         </div>
 
-        <p className="text-white/60 leading-relaxed mb-8 flex-grow relative z-10">
+        <p className="text-white/60 leading-relaxed mb-8 flex-grow relative z-10 group-hover:text-white/80 transition-colors">
           {project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mt-auto relative z-10">
           {project.tags.map((tag: string) => (
-            <span key={tag} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white/40 hover:text-white transition-colors">
+            <span key={tag} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white/40 hover:text-white hover:border-white/30 transition-colors">
               {tag}
             </span>
           ))}
-        </div>
-
-        {/* Custom "View Project" on hover */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/20 backdrop-blur-[2px] pointer-events-none">
-            <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold shadow-2xl scale-90 group-hover:scale-100 transition-transform">
-                <span>Discover Insight</span>
-                <Rocket className="w-5 h-5" />
-            </div>
         </div>
       </div>
     </motion.div>
