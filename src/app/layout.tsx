@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { Navbar } from "@/components/layout/navbar";
+import { AnimatedBackground } from "@/components/layout/animated-background";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,8 +17,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Yugank Dabas | AI Engineer Portfolio",
-  description: "AI and Data Science engineer skilled in Machine Learning, Full Stack development, and Data Analytics.",
+  title: "Yugank Dabas | Elite AI Engineer & Startup Founder",
+  description: "Futuristic portfolio of Yugank Dabas - AI Engineer, Cybersecurity Innovator, and Startup Founder. Building the next generation of intelligent systems.",
 };
 
 export default function RootLayout({
@@ -24,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased text-white`}
+        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased text-white bg-background overflow-x-hidden`}
       >
         <ThemeProvider
           attribute="class"
@@ -34,7 +37,11 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <AnimatedBackground />
+          <Navbar />
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
