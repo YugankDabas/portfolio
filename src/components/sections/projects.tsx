@@ -46,7 +46,20 @@ const projects = [
 
 const categories = ["All", "AI/ML", "Cybersecurity", "Full Stack"];
 
-function ProjectCard({ project, index }: { project: any, index: number }) {
+interface Project {
+  title: string;
+  subtitle: string;
+  description: string;
+  category: string;
+  tags: string[];
+  github: string;
+  demo: string;
+  icon: any;
+  color: string;
+  featured: boolean;
+}
+
+function ProjectCard({ project, index }: { project: Project, index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -123,7 +136,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         </p>
 
         <div className="flex flex-wrap gap-2 mt-auto relative z-10">
-          {project.tags.map(tag => (
+          {project.tags.map((tag: string) => (
             <span key={tag} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white/40 hover:text-white transition-colors">
               {tag}
             </span>
