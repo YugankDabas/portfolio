@@ -15,7 +15,7 @@ const projects = [
         image: "/assets/projects/krishi-sarthi.jpg",
         tags: ["Node.js", "Springboot", "React", "CNN", "TensorFlow/PyTorch"],
         github: "https://github.com/YugankDabas/Plant_Disease_Prediction",
-        demo: "https://github.com/YugankDabas/Plant_Disease_Prediction",
+        demo: "https://react-prac-nine.vercel.app/",
         color: "from-green-500/20 to-blue-500/20",
     },
     {
@@ -25,7 +25,7 @@ const projects = [
         image: "/assets/projects/astrasec.jpg",
         tags: ["FastAPI", "React", "LLM APIs", "Databricks", "Security Scanning"],
         github: "https://github.com/YugankDabas",
-        demo: "https://uat-weld.vercel.app/",
+        demo: "https://astra-sec-ai-frontend.vercel.app/",
         color: "from-purple-500/20 to-pink-500/20",
     },
     {
